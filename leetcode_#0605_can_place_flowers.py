@@ -34,7 +34,7 @@ There are no two adjacent flowers in flowerbed.
 # ------------------------------------------------------------------------------------------------- #
 
 class Solution(object):
-    def canPlaceFlowers(self, flowerbed, n):
+    def canPlaceFlowers_x(self, flowerbed, n):
 
         is_all_planted = False
         max_index = len(flowerbed) - 1
@@ -66,6 +66,27 @@ class Solution(object):
 
         return is_all_planted
 
+
+# alternative, more eloquent solution:
+class Solution(object):
+    def canPlaceFlowers(self, flowerbed, n):
+
+        len_f = len(flowerbed)
+        flowerbed = [0] + flowerbed + [0]
+
+        i = 1
+        while n > 0 and i <= len_f:
+            print(f'done running index {i}, current n = {n}')
+            if flowerbed[i] == 0 and flowerbed[i - 1] == 0 and flowerbed[i + 1] == 0:
+                flowerbed[i] = 1
+                n -= 1
+                print(f'n = {n}  i = {i}')
+            i += 1
+
+        is_all_planted = True if n == 0 else False
+        print(flowerbed)
+
+        return is_all_planted
 
 
 # ------------------------------------------------------------------------------------------------- #
