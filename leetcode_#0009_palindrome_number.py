@@ -41,11 +41,10 @@ Follow up: Could you solve it without converting the integer to a string?
 
 class Solution:
     def isPalindrome(self, x):
-        self.x = x
 
         is_palindrome = False
-        reversed_x = ''.join(reversed(str(self.x)))
-        if str(self.x) == reversed_x:
+        reversed_x = ''.join(reversed(str(x)))
+        if str(x) == reversed_x:
             is_palindrome = True
 
         return is_palindrome
